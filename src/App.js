@@ -28,14 +28,14 @@ function App() {
   const formattedAnswer = formatAnswer(answer.current);
   
   return (
-    <div className="relative w-screen min-h-screen flex flex-col main-div">
+    <div className="relative w-screen min-h-screen flex flex-col main-div overflow-x-hidden">
       <div className="mb-20">
         <Navbar />
       </div>
       <div className="w-full flex flex-col justify-center align-center min-h-[79vh]">
         <div className="flex justify-center align-center result-outer">
           <div
-            className={`w-6/12 min-h-[72vh] result-container mb-10 p-4 text-gray-300 ${
+            className={`w-6/12 min-h-[72vh] result-container lg:mb-20 mb-24 p-4 text-gray-300 ${
               (!loading && answer.current) ? "result-has-answer" : ""
             }`}
           >
@@ -45,17 +45,16 @@ function App() {
               <TypeAnimation
                 sequence={[formattedAnswer]}
                 wrapper="pre"
-                speed={90}
-                style={{ fontSize: '1em' }}
+                speed={99}
                 repeat={0}
-                className="result-card"
+                className="result-card text-sm sm:text-base md:text-lg lg:text-lg"
                 cursor={false}
               />
             )}
           </div>
         </div>
       </div>
-      <div className="flex justify-center align-center ml-0 mr-0 mb-4 prompt-div">
+      <div className="flex lg:w-screen lg:fixed justify-center align-center lg:ml-0 lg:mt-[91vh] ml-0 mr-0 mb-4 prompt-div">
         <Prompt />
       </div>
     </div>

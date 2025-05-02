@@ -67,7 +67,7 @@ const Prompt = () => {
             placeholder="Message ChatGemini..."
             type="text"
             id="messageInput"
-            className='w-full'
+            className='w-full '
             autoComplete="off"
             onChange={changeHandler} onKeyDown={handleKeyDown}
         /> 
