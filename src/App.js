@@ -5,6 +5,7 @@ import { useResultContext } from "./components/ContextProvider";
 import Spinner from "./components/Spinner";
 import { TypeAnimation } from 'react-type-animation';
 import DOMPurify from 'dompurify';
+
 function App() {
   const { answer, loading } = useResultContext();
   
