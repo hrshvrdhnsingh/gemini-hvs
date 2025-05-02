@@ -4,7 +4,7 @@ import Prompt from "./components/Prompt";
 import { useResultContext } from "./components/ContextProvider";
 import Spinner from "./components/Spinner";
 import { TypeAnimation } from 'react-type-animation';
-
+import DOMPurify from 'dompurify';
 function App() {
   const { answer, loading } = useResultContext();
   
@@ -12,19 +12,23 @@ function App() {
     console.log(htmlString)
     return { __html: htmlString };
   }; */
+  
   const formatAnswer = (rawAnswer) => {
     // Split the raw answer into lines
     const lines = rawAnswer.split('\n');
-    // Filter out any empty lines
-    const filteredLines = lines.filter(line => line.trim() !== '');
-    // Join the filtered lines with '\n\n' to maintain line breaks
-    return filteredLines.join('\n\n');
+
+    const processedLines = lines.map(line =>
+      line.replace(/\*\*(.*?)\*\*/g, (_, boldText) => boldText.toUpperCase()) // simulate bold
+    );
+
+    return processedLines.join('\n');
   };
+  
 
   const formattedAnswer = formatAnswer(answer.current);
   
   return (
-    <div className="w-screen min-h-screen flex flex-col main-div">
+    <div className="relative w-screen min-h-screen flex flex-col main-div">
       <div className="mb-20">
         <Navbar />
       </div>
@@ -42,7 +46,7 @@ function App() {
                 sequence={[formattedAnswer]}
                 wrapper="pre"
                 speed={90}
-                style={{ fontSize: '1.1em' }}
+                style={{ fontSize: '1em' }}
                 repeat={0}
                 className="result-card"
                 cursor={false}

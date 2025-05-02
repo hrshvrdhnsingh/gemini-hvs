@@ -21,7 +21,7 @@ export default function AppContextProvider({ children }) {
 
     try {
       const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
         method: 'post',
         data: {
           "contents": [{ "parts": [{ "text": question }] }]
