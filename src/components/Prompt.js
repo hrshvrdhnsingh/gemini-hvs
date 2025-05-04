@@ -24,7 +24,7 @@ const Prompt = () => {
     }
   }
   return (
-    <div className="messageBox w-[40vw] border">
+    <div className="messageBox w-[40vw]">
       <div className="fileUploadWrapper">
         <div>
           <label htmlFor="file">

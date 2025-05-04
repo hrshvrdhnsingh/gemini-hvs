@@ -7,7 +7,7 @@ import { TypeAnimation } from 'react-type-animation';
 import DOMPurify from 'dompurify';
 
 function App() {
-  const { answer, loading } = useResultContext();
+  const { picture, answer, loading } = useResultContext();
   
   /* const createMarkup = (htmlString) => {
     console.log(htmlString)
@@ -55,7 +55,14 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex lg:w-screen lg:fixed justify-center align-center lg:ml-0 lg:mt-[91vh] ml-0 mr-0 mb-4 prompt-div">
+      <div className="flex relative gap-8 flex-row lg:w-screen lg:fixed justify-center align-center lg:ml-0 lg:mt-[90vh] ml-0 mr-0 mb-4 prompt-div">
+        <div className="image-div absolute flex flex-row-reverse gap-2 mb-4 w-[10vw] lg:left-72 rounded-xl">
+          {
+            picture?.map((pic, idx) => (
+              <img key={idx} className="prompt-image w-16 h-16 rounded-xl" src={URL.createObjectURL(pic)} alt={`preview-${idx}`}/>
+            ))
+          }
+        </div>
         <Prompt />
       </div>
     </div>
