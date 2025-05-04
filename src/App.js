@@ -5,9 +5,11 @@ import { useResultContext } from "./components/ContextProvider";
 import Spinner from "./components/Spinner";
 import { TypeAnimation } from 'react-type-animation';
 import DOMPurify from 'dompurify';
+import { useState } from "react";
 
 function App() {
   const { picture, answer, loading } = useResultContext();
+  const [modal, setModal] = useState(false);
   
   /* const createMarkup = (htmlString) => {
     console.log(htmlString)
@@ -59,7 +61,7 @@ function App() {
         <div className="image-div absolute flex flex-row-reverse gap-2 mb-4 w-[10vw] lg:left-72 rounded-xl">
           {
             picture?.map((pic, idx) => (
-              <img key={idx} className="prompt-image w-16 h-16 rounded-xl" src={URL.createObjectURL(pic)} alt={`preview-${idx}`}/>
+              <div key={idx}><img className="prompt-image w-16 h-16 rounded-xl" src={URL.createObjectURL(pic)} alt={`preview-${idx}`}/></div>
             ))
           }
         </div>

@@ -6,7 +6,7 @@ const AppContext = createContext();
 
 export default function AppContextProvider({ children }) {
   const answer = useRef('');
-  const [question, setQuestion] = useState('');
+  let [question, setQuestion] = useState('');
   const [loading, setLoading] = useState(false);
   const [picture, setPicture] = useState([]);
   const apiKey = process.env.REACT_APP_GEMINI_KEY;
@@ -41,6 +41,7 @@ export default function AppContextProvider({ children }) {
         })
       );
   
+      if(question) question = question + " with no html tags";
       const requestBody = {
         contents: [
           {
