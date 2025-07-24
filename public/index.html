@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) –– paste this at the very top of <head> -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLK4FS4CC0"></script>
+    <!-- Google tag (gtag.js)  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G‑NLK4FS4CC0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
-
-      // initialize with your GA4 measurement ID
-      gtag('config', 'G-NLK4FS4CC0');
+    
+      // initialize with cross‑domain linking enabled
+      gtag('config', 'G‑NLK4FS4CC0', {
+        allow_linker: true,
+        linker: {
+          domains: [
+            'google-vardhan.vercel.app',
+            'gemini-hvs.vercel.app'
+          ]
+        }
+      });
     </script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
